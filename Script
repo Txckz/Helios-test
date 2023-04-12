@@ -272,6 +272,8 @@ plr:GetMouse().KeyDown:Connect(function(key)
         end
         local sp = Instance.new('SelectionBox',n_plr.Character.Torso)
         sp.Name = 'SelectedPlayer'
+        sp.Color3 = Color3.new(0, 0, 0)
+        sp.Transparency = .9
         sp.Adornee = n_plr.Character.Torso
         tar = n_plr
     elseif key == 'q' and tar and plr.Character then
@@ -1466,7 +1468,7 @@ x:Toggle("Dupe Tools (Only)",{location = Table, flag = "Toggle"},function(bool)
             if GetChar():FindFirstChild("Loaded") then
                 GetChar().Loaded:Destroy()
             end
-            Player.PlayerGui["Menu Screen"].RemoteEvent:FireServer("C4")
+            Player.PlayerGui["Menu Screen"].RemoteEvent:FireServer("")
             game:GetService("RunService").Heartbeat:Wait()
         until not Spamming
     end
@@ -1515,7 +1517,7 @@ x:Toggle("Target All",{location = Table, flag = "Toggle"},function(bool)
                     GetChar().Humanoid:EquipTool(v)
                     
                     local targ
-                    local range = 10000
+                    local range = 99999999999
                     for i,v in pairs(workspace:GetChildren()) do
                         if v~=GetChar() then
                             local vhum = v:FindFirstChild("Humanoid")
